@@ -28,10 +28,7 @@ const Dashboard = () => {
     }, [user, navigate, refetch]);
 
     if (!user) return null;
-
-    if (isLoading) {
-        return <Spinner />;
-    }
+    if (isLoading) return <Spinner />;
 
     if (isError) {
         return <p className="error">Failed to load dashboard data.</p>;
@@ -45,32 +42,32 @@ const Dashboard = () => {
             </section>
 
             <section className="dashboard-grid">
-                <div className="card">
+                <div className="card income">
                     <h3>Total Income</h3>
                     <p>{stats?.totalIncome ?? 0} ALL</p>
                 </div>
 
-                <div className="card">
+                <div className="card expenses">
                     <h3>Total Expenses</h3>
                     <p>{stats?.totalExpenses ?? 0} ALL</p>
                 </div>
 
-                <div className="card">
+                <div className="card balance">
                     <h3>Balance</h3>
                     <p>{stats?.balance ?? 0} ALL</p>
                 </div>
 
-                <div className="card">
-                    <h3>Budget Savings</h3>
+                <div className="card budget">
+                    <h3>Remaining Budget</h3>
                     <p>{stats?.totalBudgetSavings ?? 0} ALL</p>
                 </div>
 
-                <div className="card">
+                <div className="card saved">
                     <h3>Total Saved</h3>
                     <p>{stats?.totalSaved ?? 0} ALL</p>
                 </div>
 
-                <div className="card">
+                <div className="card progress-card">
                     <h3>Saving Progress</h3>
                     <p>{stats?.savingProgress ?? 0}%</p>
                 </div>
